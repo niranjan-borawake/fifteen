@@ -1,0 +1,17 @@
+.number {
+  background: #fff;
+  border: 1px solid #3e2723;
+  border-radius: 50px;
+  cursor: default;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+.number.selected {
+  background: #5d4037;
+  color: #fff;
+}
+.number.used {
+  background: #bcaaa4;
+  color: #000;
+}

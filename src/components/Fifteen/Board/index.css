@@ -1,0 +1,11 @@
+.board {
+  display: grid;
+  grid-template-columns: repeat(5, 5.5vh);
+  grid-template-rows: repeat(10, auto);
+  column-gap: 5px;
+  row-gap: 5px;
+  justify-content: center;
+  align-items: center;
+  justify-items: stretch;
+  align-items: stretch;
+}

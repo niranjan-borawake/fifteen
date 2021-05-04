@@ -1,0 +1,24 @@
+.fifteen {
+  display: grid;
+  grid-template-rows: 20% auto 20%;
+  height: 100vh;
+  color: #3e2723;
+  font-family: monospace;
+  font-size: x-large;
+}
+.fifteen .result-and-timer {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+.result-and-timer .player-2 {
+  transform: rotate(180deg);
+}
+.fifteen.player-1 .number {
+  transform: rotate(0deg);
+  transition: transform 0.5s ease-out;
+}
+.fifteen.player-2 .number {
+  transform: rotate(180deg);
+  transition: transform 0.5s ease-out;
+}

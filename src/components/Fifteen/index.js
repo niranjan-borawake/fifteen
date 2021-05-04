@@ -52,10 +52,11 @@ const reducer = (state, action) => {
       };
     case ACTIONS.REMOVE_FROM_CURRENT_SELECTIONS: {
       const { currentSelections } = state;
-      currentSelections.splice(
-        currentSelections.indexOf(action.toBeRemoved),
-        1
-      );
+      currentSelections.includes(action.toBeRemoved) &&
+        currentSelections.splice(
+          currentSelections.indexOf(action.toBeRemoved),
+          1
+        );
       return {
         ...state,
         currentSelections: [...currentSelections],
@@ -83,7 +84,6 @@ const Fifteen = () => {
     loser,
     isGameOver,
   } = state;
-
   useEffect(() => {
     if (isSumOfSelectionsFifteen(currentSelections, boardNumbers)) {
       dispatch({ type: ACTIONS.TOGGLE_CURRENT_PLAYER });
@@ -107,6 +107,7 @@ const Fifteen = () => {
         )}
       </div>
       <Board
+        isGameOver={isGameOver}
         dispatch={dispatch}
         currentSelections={currentSelections}
         boardNumbers={boardNumbers}

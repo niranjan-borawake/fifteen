@@ -1,14 +1,16 @@
-import './index.css';
-import { ACTIONS } from '../..';
-import PropTypes from 'prop-types';
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
+
+import { ACTIONS } from '../../reducer.js';
+
+import './index.css';
 
 const Number = ({
   number: { value, id, isUsed },
   currentSelections,
-  dispatch,
   isGameOver,
+  dispatch,
 }) => {
   const onNumberClick = () => {
     if (isUsed || isGameOver) {
@@ -43,14 +45,16 @@ const Number = ({
     </div>
   );
 };
+
 Number.propTypes = {
-  addToSelections: PropTypes.func.isRequired,
+  number: PropTypes.shape({
+    value: PropTypes.number.isRequired,
+    id: PropTypes.number.isRequired,
+    isUsed: PropTypes.bool.isRequired,
+  }).isRequired,
+  currentSelections: PropTypes.arrayOf(PropTypes.number).isRequired,
+  isGameOver: PropTypes.bool.isRequired,
+  dispatch: PropTypes.func.isRequired,
 };
-// function areEqual(prevProps, nextProps) {
-//   return (
-//     prevProps.number.isUsed === nextProps.number.isUsed &&
-//     prevProps.currentSelections.includes(prevProps.number.id) ===
-//       nextProps.currentSelections.includes(nextProps.number.id)
-//   );
-// }
+
 export default React.memo(Number);

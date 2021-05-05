@@ -1,5 +1,8 @@
-import './index.css';
+import PropTypes from 'prop-types';
+
 import fifteen from './fifteen.jpeg';
+
+import './index.css';
 
 const Rules = ({ startGame }) => {
   return (
@@ -19,6 +22,10 @@ const Rules = ({ startGame }) => {
       </div>
     </div>
   );
+};
+
+Rules.propTypes = {
+  startGame: PropTypes.func.isRequired,
 };
 
 export default Rules;

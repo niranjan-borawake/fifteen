@@ -1,6 +1,7 @@
 import './index.css';
-import { useEffect, useReducer } from 'react';
+import { useEffect, useReducer, useState } from 'react';
 import Board from './Board';
+import Rules from './Rules';
 import Timer from './Timer';
 
 const PLAYERS = {
@@ -77,6 +78,7 @@ const isSumOfSelectionsFifteen = (currentSelections, boardNumbers) => {
 };
 const Fifteen = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
+  const [rulesVisible, setRulesVisible] = useState(true);
   const {
     boardNumbers,
     currentPlayer,
@@ -90,6 +92,9 @@ const Fifteen = () => {
     }
   }, [currentSelections, boardNumbers]);
 
+  if (rulesVisible) {
+    return <Rules startGame={() => setRulesVisible(false)} />;
+  }
   return (
     <div className={`fifteen player-${currentPlayer}`}>
       <div className="result-and-timer">

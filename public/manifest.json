@@ -1,5 +1,5 @@
 {
-  "short_name": "15",
+  "short_name": "Fifteen",
   "name": "Fifteen",
   "icons": [
     {
@@ -21,5 +21,5 @@
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#d7ccc8",
-  "background_color": "#3e2723"
+  "background_color": "#3e3028"
 }

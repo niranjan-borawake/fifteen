@@ -7,7 +7,9 @@ import './index.css';
 const Rules = ({ startGame }) => {
   return (
     <div className="home">
-      <img src={fifteen} className="banner"></img>
+      <div className="banner">
+        <img src={fifteen} alt="15"></img>
+      </div>
       <div className="rules">
         <p>
           Players take it in turns to select 2 or 3 circles that total 15 in

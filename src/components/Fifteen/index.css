@@ -5,6 +5,7 @@
   color: #3e2723;
   font-family: monospace;
   font-size: x-large;
+  background-color: #d7ccc8;
 }
 .fifteen .result-and-timer {
   display: grid;

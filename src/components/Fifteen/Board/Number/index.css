@@ -1,5 +1,5 @@
 .number {
-  background: #fff;
+  background: #efebe9;
   border: 1px solid #3e2723;
   border-radius: 50px;
   cursor: default;
@@ -12,6 +12,6 @@
   color: #fff;
 }
 .number.used {
-  background: #bcaaa4;
+  background: #a1887f;
   color: #000;
 }

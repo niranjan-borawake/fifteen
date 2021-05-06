@@ -1,4 +1,5 @@
 import { useEffect, useReducer, useState } from 'react';
+import PropTypes from 'prop-types';
 
 import { PLAYERS, FIFTEEN } from '../../constants.js';
 import { initialState, reducer, ACTIONS } from './reducer.js';
@@ -18,7 +19,7 @@ const isSumOfSelectionsFifteen = (currentSelections, boardNumbers) => {
   );
 };
 
-const Fifteen = () => {
+const Fifteen = ({ testBoardNumbers }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [rulesVisible, setRulesVisible] = useState(true);
   const {
@@ -43,7 +44,7 @@ const Fifteen = () => {
     <div className={`fifteen player-${currentPlayer}`}>
       <div className="result-and-timer">
         {isGameOver && (
-          <div className="player-2">
+          <div data-testid="game-result-player-2" className="player-2">
             {loser === PLAYERS.TWO ? 'You Lost' : 'You Won'}
           </div>
         )}
@@ -55,11 +56,11 @@ const Fifteen = () => {
         isGameOver={isGameOver}
         dispatch={dispatch}
         currentSelections={currentSelections}
-        boardNumbers={boardNumbers}
+        boardNumbers={testBoardNumbers || boardNumbers}
       />
       <div className="result-and-timer">
         {isGameOver && (
-          <div className="player-1">
+          <div data-testid="game-result-player-1" className="player-1">
             {loser === PLAYERS.ONE ? 'You Lost' : 'You Won'}
           </div>
         )}
@@ -69,5 +70,15 @@ const Fifteen = () => {
       </div>
     </div>
   );
+};
+
+Fifteen.propTypes = {
+  testBoardNumbers: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.number.isRequired,
+      id: PropTypes.number.isRequired,
+      isUsed: PropTypes.bool.isRequired,
+    })
+  ),
 };
 export default Fifteen;

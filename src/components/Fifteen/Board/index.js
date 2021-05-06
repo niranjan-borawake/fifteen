@@ -5,7 +5,7 @@ import Number from './Number';
 
 const Board = ({ boardNumbers, currentSelections, dispatch, isGameOver }) => {
   return (
-    <div className="board">
+    <div className="board" data-testid="board">
       {boardNumbers.map(number => (
         <Number
           key={number.id}

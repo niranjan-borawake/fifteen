@@ -7,8 +7,8 @@ import useInterval from '../../../hooks/useInterval';
 
 import './index.css';
 
-const Timer = ({ dispatch, currentPlayer }) => {
-  const [timer, setTimer] = useState(FIFTEEN);
+const Timer = ({ dispatch, currentPlayer, testTimer }) => {
+  const [timer, setTimer] = useState(testTimer || FIFTEEN);
   useEffect(() => {
     if (timer === 0) {
       dispatch({ type: ACTIONS.SET_GAME_OVER });
@@ -22,8 +22,11 @@ const Timer = ({ dispatch, currentPlayer }) => {
   }, 1000);
 
   return (
-    <label className={`timer player-${currentPlayer}`}>
-      {`00:${timer < 10 ? '0' + timer : timer}`}{' '}
+    <label
+      data-testid={`timer-player-${currentPlayer}`}
+      className={`timer player-${currentPlayer}`}
+    >
+      {`00:${timer < 10 ? '0' + timer : timer}`}
     </label>
   );
 };
@@ -31,6 +34,7 @@ const Timer = ({ dispatch, currentPlayer }) => {
 Timer.propTypes = {
   currentPlayer: PropTypes.oneOf([PLAYERS.ONE, PLAYERS.TWO]),
   dispatch: PropTypes.func.isRequired,
+  testTimer: PropTypes.number,
 };
 
 export default Timer;

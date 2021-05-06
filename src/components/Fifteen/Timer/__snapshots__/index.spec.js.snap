@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Timer should reder with default start time 1`] = `
+<div>
+  <label
+    class="timer player-1"
+    data-testid="timer-player-1"
+  >
+    00:15
+  </label>
+</div>
+`;

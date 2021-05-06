@@ -18,7 +18,7 @@ const Rules = ({ startGame }) => {
           and 6.
         </p>
         <p>The last player who selects a combination of 15 is the winner.</p>
-        <button onClick={startGame}>OK</button>
+        <button onClick={startGame}>START</button>
       </div>
     </div>
   );

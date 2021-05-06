@@ -25,7 +25,19 @@
     "extends": [
       "eslint:recommended",
       "plugin:react-hooks/recommended",
-      "plugin:react/recommended"
+      "plugin:react/recommended",
+      "plugin:jest/recommended"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "**/__tests__/**/*.[jt]s?(x)",
+          "**/?(*.)+(spec|test).[jt]s?(x)"
+        ],
+        "extends": [
+          "plugin:testing-library/react"
+        ]
+      }
     ],
     "rules": {
       "react/jsx-uses-react": "off",
@@ -35,7 +47,8 @@
     },
     "env": {
       "browser": true,
-      "node": true
+      "node": true,
+      "jest/globals": true
     },
     "parserOptions": {
       "ecmaVersion": 2018,
@@ -68,8 +81,11 @@
   "devDependencies": {
     "classnames": "^2.3.1",
     "eslint": "^7.25.0",
+    "eslint-plugin-jest": "^24.3.6",
+    "eslint-plugin-jest-dom": "^3.8.1",
     "eslint-plugin-react": "^7.23.2",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-testing-library": "^4.2.0",
     "gh-pages": "^3.1.0",
     "prettier": "^2.2.1",
     "prop-types": "^15.7.2"

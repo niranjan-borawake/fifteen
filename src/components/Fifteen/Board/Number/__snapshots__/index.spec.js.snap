@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Number should render a given number 1`] = `
+<div>
+  <div
+    class="number"
+    data-testid="number-1"
+  >
+    5
+  </div>
+</div>
+`;

@@ -34,6 +34,7 @@ const Number = ({
   };
   return (
     <div
+      data-testid={`number-${id}`}
       className={classNames({
         number: true,
         selected: currentSelections.includes(id),

@@ -4,7 +4,7 @@ import fifteen from './fifteen.jpeg';
 
 import './index.css';
 
-const Rules = ({ startGame }) => {
+const Home = ({ startGame }) => {
   return (
     <div className="home">
       <div className="banner">
@@ -26,8 +26,8 @@ const Rules = ({ startGame }) => {
   );
 };
 
-Rules.propTypes = {
+Home.propTypes = {
   startGame: PropTypes.func.isRequired,
 };
 
-export default Rules;
+export default Home;

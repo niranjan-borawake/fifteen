@@ -4,6 +4,16 @@ body {
     monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #3e3028;
-  font-size: x-large;
+}
+:root {
+  --br-50-color: #efebe9;
+  --br-100-color: #d7ccc8;
+  --br-200-color: #bcaaa4;
+  --br-300-color: #a1887f;
+  --br-400-color: #8d6e63;
+  --br-500-color: #795548;
+  --br-600-color: #6d4c41;
+  --br-700-color: #5d4037;
+  --br-800-color: #4e342e;
+  --br-900-color: #3e2723;
 }

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { PLAYERS, FIFTEEN } from '../../constants.js';
 import { initialState, reducer, ACTIONS } from './reducer.js';
 import Board from './Board';
-import Rules from './Rules';
+import Home from './Home';
 import Timer from './Timer';
 
 import './index.css';
@@ -37,7 +37,7 @@ const Fifteen = ({ testBoardNumbers }) => {
   }, [currentSelections, boardNumbers]);
 
   if (rulesVisible) {
-    return <Rules startGame={() => setRulesVisible(false)} />;
+    return <Home startGame={() => setRulesVisible(false)} />;
   }
 
   return (

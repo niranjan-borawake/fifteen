@@ -2,10 +2,10 @@
   display: grid;
   grid-template-rows: 20% auto 20%;
   height: 100vh;
-  color: #3e2723;
+  color: var(--br-900-color);
   font-family: monospace;
   font-size: x-large;
-  background-color: #d7ccc8;
+  background-color: var(--br-100-color);
 }
 .fifteen .result-and-timer {
   display: grid;

@@ -16,5 +16,5 @@ Some features are WIP.
 
 - [Nicholas C. Zakas](https://twitter.com/slicknet) - for random number generator utility in his book _Professional JavaScript for Web Developers_.
 - [Dan Abramov](https://twitter.com/dan_abramov) - for _useInterval_ [hook](https://overreacted.io/making-setinterval-declarative-with-react-hooks/).
-- [Steve Schoger](https://twitter.com/steveschoger) - for [Hero Patterns](https://www.heropatterns.com/) & [Hero Icons](https://heroicons.com/)
+- [Steve Schoger](https://twitter.com/steveschoger) - for [Hero Patterns](https://www.heropatterns.com/) & [Hero Icons](https://heroicons.com/).
 - [Waldemar Brandt](https://unsplash.com/@waldemarbrandt67w) - for his [beautiful image](https://unsplash.com/photos/YMMuClvvvWI) on unsplash.com.

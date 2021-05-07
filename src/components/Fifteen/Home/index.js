@@ -73,7 +73,7 @@ const Home = ({ startGame, setPlayingAgainstBot, playingAgainstBot }) => {
             <img className="avatar" src={NDAvatar}></img>
           </a>
           <div className="like-and-share">
-            <a href="https://twitter.com/niranjandb">
+            <a href="https://twitter.com/niranjandb/status/1390756922987454466?s=20">
               <HeartIcon className="icon" />
             </a>
             {canShare && <ShareIcon className="icon" onClick={onShare} />}

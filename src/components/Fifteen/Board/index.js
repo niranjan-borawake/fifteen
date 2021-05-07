@@ -3,7 +3,13 @@ import PropTypes from 'prop-types';
 
 import Number from './Number';
 
-const Board = ({ boardNumbers, currentSelections, dispatch, isGameOver }) => {
+const Board = ({
+  boardNumbers,
+  currentSelections,
+  dispatch,
+  isGameOver,
+  isBotTurn,
+}) => {
   return (
     <div className="board" data-testid="board">
       {boardNumbers.map(number => (
@@ -13,6 +19,7 @@ const Board = ({ boardNumbers, currentSelections, dispatch, isGameOver }) => {
           number={number}
           currentSelections={currentSelections}
           dispatch={dispatch}
+          isBotTurn={isBotTurn}
         />
       ))}
     </div>
@@ -30,6 +37,7 @@ Board.propTypes = {
   currentSelections: PropTypes.arrayOf(PropTypes.number).isRequired,
   isGameOver: PropTypes.bool.isRequired,
   dispatch: PropTypes.func.isRequired,
+  isBotTurn: PropTypes.bool.isRequired,
 };
 
 export default Board;

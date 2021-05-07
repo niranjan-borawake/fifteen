@@ -10,6 +10,7 @@ describe('Number', () => {
           number={{ value: 5, id: 1, isUsed: false }}
           isGameOver={false}
           currentSelections={[0]}
+          isBotTurn={false}
         />
       ).container
     ).toMatchSnapshot();

@@ -8,6 +8,7 @@ import Home from './Home';
 import Timer from './Timer';
 
 import './index.css';
+import { getNumbersWithSumFifteen } from '../../utils/botUtils.js';
 
 const isSumOfSelectionsFifteen = (currentSelections, boardNumbers) => {
   return (
@@ -22,6 +23,7 @@ const isSumOfSelectionsFifteen = (currentSelections, boardNumbers) => {
 const Fifteen = ({ testBoardNumbers }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [rulesVisible, setRulesVisible] = useState(true);
+  const [playingAgainstBot, setPlayingAgainstBot] = useState(true);
   const {
     boardNumbers,
     currentPlayer,
@@ -30,14 +32,37 @@ const Fifteen = ({ testBoardNumbers }) => {
     isGameOver,
   } = state;
 
+  const isBotTurn = () =>
+    !!(playingAgainstBot && currentPlayer === PLAYERS.TWO);
+
   useEffect(() => {
     if (isSumOfSelectionsFifteen(currentSelections, boardNumbers)) {
       dispatch({ type: ACTIONS.TOGGLE_CURRENT_PLAYER });
     }
   }, [currentSelections, boardNumbers]);
 
+  useEffect(() => {
+    if (currentPlayer === PLAYERS.TWO && playingAgainstBot) {
+      const numbers = getNumbersWithSumFifteen(boardNumbers);
+      numbers.forEach(({ id }, index) => {
+        setTimeout(() => {
+          dispatch({
+            type: ACTIONS.ADD_TO_CURRENT_SELECTIONS,
+            toBeAdded: id,
+          });
+        }, 2000 * (index + 1));
+      });
+    }
+  }, [currentPlayer, playingAgainstBot, boardNumbers]);
+
   if (rulesVisible) {
-    return <Home startGame={() => setRulesVisible(false)} />;
+    return (
+      <Home
+        startGame={() => setRulesVisible(false)}
+        setPlayingAgainstBot={setPlayingAgainstBot}
+        playingAgainstBot={playingAgainstBot}
+      />
+    );
   }
 
   return (
@@ -57,6 +82,7 @@ const Fifteen = ({ testBoardNumbers }) => {
         dispatch={dispatch}
         currentSelections={currentSelections}
         boardNumbers={testBoardNumbers || boardNumbers}
+        isBotTurn={isBotTurn()}
       />
       <div className="result-and-timer">
         {isGameOver && (

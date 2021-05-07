@@ -11,9 +11,10 @@ const Number = ({
   currentSelections,
   isGameOver,
   dispatch,
+  isBotTurn,
 }) => {
   const onNumberClick = () => {
-    if (isUsed || isGameOver) {
+    if (isUsed || isBotTurn || isGameOver) {
       return;
     }
 
@@ -56,6 +57,7 @@ Number.propTypes = {
   currentSelections: PropTypes.arrayOf(PropTypes.number).isRequired,
   isGameOver: PropTypes.bool.isRequired,
   dispatch: PropTypes.func.isRequired,
+  isBotTurn: PropTypes.bool.isRequired,
 };
 
 export default React.memo(Number);

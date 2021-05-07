@@ -2,7 +2,7 @@
   display: grid;
   align-items: center;
   justify-items: center;
-  grid-template-rows: repeat(2, auto);
+  grid-template-rows: repeat(3, auto);
   height: 100vh;
   box-shadow: 0 0 20px 5px var(--br-900-color) inset;
   background-color: var(--br-100-color);
@@ -19,21 +19,114 @@
 .banner img {
   width: 100vw;
   max-width: 640px;
+  margin: 40px 0;
 }
 
-.rules {
+.details {
   height: 50vh;
-  font-size: large;
+  font-size: medium;
   text-align: center;
-  align-self: center;
   padding: 0 20px;
+  display: grid;
+  align-items: center;
+  grid-template-rows: 70% 20% 10%;
+}
+.rules p {
+  margin: 20px 0;
 }
 
-button {
+.controls {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+
+.controls button {
   width: 100px;
   height: 35px;
   background-color: var(--br-700-color);
   border: none;
   color: var(--br-50-color);
   border-radius: 20px;
+  align-self: end;
+  margin: 10px;
+}
+
+.opponent {
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  align-items: end;
+}
+
+.social {
+  display: grid;
+  align-self: end;
+  grid-template-columns: repeat(2, 50%);
+}
+.social .built-by {
+  justify-self: start;
+}
+.social .avatar {
+  width: 30px;
+}
+.social a {
+  cursor: default;
+}
+.social .icon {
+  width: 30px;
+  height: 30px;
+  color: var(--br-900-color);
+  margin-left: 10px;
+}
+
+.social .like-and-share {
+  text-align: right;
+}
+
+/**
+ * Removing the checkbox and radio appearance
+ */
+
+[type='radio'],
+[type='checkbox'] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/**
+  * Giving Checkbox & Radio not checked a new appearance
+  */
+
+[type='radio'],
+[type='checkbox'] {
+  width: 20px;
+  height: 20px;
+  border: solid 1px var(--br-900-color);
+  margin-right: 8px;
+  position: relative;
+}
+
+/**
+  * Giving Checkbox & Radio checked state a new appearance
+  */
+
+[type='radio']:checked::before,
+[type='checkbox']:checked::before {
+  content: '';
+  width: 14px;
+  height: 14px;
+  background-color: var(--br-900-color);
+  position: absolute;
+  top: 2px;
+  left: 2px;
+}
+
+/**
+  * Rounding Radio inputs new appearance
+  */
+
+[type='radio'],
+[type='radio']:checked::before {
+  border-radius: 100%;
 }

@@ -1,14 +1,19 @@
 import { useEffect, useReducer, useState } from 'react';
 import PropTypes from 'prop-types';
+import { HomeIcon, RefreshIcon } from '@heroicons/react/solid';
 
 import { PLAYERS, FIFTEEN } from '../../constants.js';
-import { initialState, reducer, ACTIONS } from './reducer.js';
+import { getNumbersWithSumFifteen } from '../../utils/botUtils.js';
+import { getInitialState, reducer, ACTIONS } from './reducer.js';
 import Board from './Board';
 import Home from './Home';
 import Timer from './Timer';
 
+import Winner from './Winner/index.js';
+
 import './index.css';
-import { getNumbersWithSumFifteen } from '../../utils/botUtils.js';
+import Confetti from './Confetti/index.js';
+import classNames from 'classnames';
 
 const isSumOfSelectionsFifteen = (currentSelections, boardNumbers) => {
   return (
@@ -21,7 +26,7 @@ const isSumOfSelectionsFifteen = (currentSelections, boardNumbers) => {
 };
 
 const Fifteen = ({ testBoardNumbers }) => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(reducer, getInitialState());
   const [rulesVisible, setRulesVisible] = useState(true);
   const [playingAgainstBot, setPlayingAgainstBot] = useState(true);
   const {
@@ -31,6 +36,15 @@ const Fifteen = ({ testBoardNumbers }) => {
     loser,
     isGameOver,
   } = state;
+
+  const gotoHome = () => {
+    dispatch({ type: ACTIONS.RE_START });
+    setRulesVisible(true);
+  };
+
+  const reStart = () => {
+    dispatch({ type: ACTIONS.RE_START });
+  };
 
   const isBotTurn = () =>
     !!(playingAgainstBot && currentPlayer === PLAYERS.TWO);
@@ -67,15 +81,19 @@ const Fifteen = ({ testBoardNumbers }) => {
 
   return (
     <div className={`fifteen player-${currentPlayer}`}>
+      {isGameOver && <Confetti />}
       <div className="result-and-timer">
         {isGameOver && (
           <div data-testid="game-result-player-2" className="player-2">
-            {loser === PLAYERS.TWO ? 'You Lost' : 'You Won'}
+            {loser === PLAYERS.TWO ? '0' : <Winner />}
           </div>
         )}
-        {currentPlayer === PLAYERS.ONE && !isGameOver && (
-          <Timer currentPlayer={currentPlayer} dispatch={dispatch} />
-        )}
+        {!isGameOver &&
+          (currentPlayer === PLAYERS.TWO ? (
+            <Timer currentPlayer={currentPlayer} dispatch={dispatch} />
+          ) : (
+            <label className="player-2">15</label>
+          ))}
       </div>
       <Board
         isGameOver={isGameOver}
@@ -84,15 +102,25 @@ const Fifteen = ({ testBoardNumbers }) => {
         boardNumbers={testBoardNumbers || boardNumbers}
         isBotTurn={isBotTurn()}
       />
-      <div className="result-and-timer">
+      <div
+        className={classNames({
+          'result-and-timer': true,
+          'game-over': isGameOver,
+        })}
+      >
+        {isGameOver && <HomeIcon className="icon" onClick={gotoHome} />}
         {isGameOver && (
           <div data-testid="game-result-player-1" className="player-1">
-            {loser === PLAYERS.ONE ? 'You Lost' : 'You Won'}
+            {loser === PLAYERS.ONE ? '0' : <Winner />}
           </div>
         )}
-        {currentPlayer === PLAYERS.TWO && !isGameOver && (
-          <Timer currentPlayer={currentPlayer} dispatch={dispatch} />
-        )}
+        {!isGameOver &&
+          (currentPlayer === PLAYERS.ONE ? (
+            <Timer currentPlayer={currentPlayer} dispatch={dispatch} />
+          ) : (
+            <label className="player-1">15</label>
+          ))}
+        {isGameOver && <RefreshIcon className="icon" onClick={reStart} />}
       </div>
     </div>
   );

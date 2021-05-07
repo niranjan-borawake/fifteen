@@ -6,7 +6,7 @@ exports[`Timer should reder with default start time 1`] = `
     class="timer player-1"
     data-testid="timer-player-1"
   >
-    00:15
+    15
   </label>
 </div>
 `;

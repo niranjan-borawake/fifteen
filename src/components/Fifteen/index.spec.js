@@ -101,7 +101,7 @@ describe('Fifteen:', () => {
     act(() => {
       jest.advanceTimersByTime(1000 * 15);
     });
-    expect(screen.getByText('You Lost')).toBeInTheDocument();
-    expect(screen.getByText('You Won')).toBeInTheDocument();
+    expect(screen.getByText('0')).toBeInTheDocument();
+    expect(screen.getByText('15')).toBeInTheDocument();
   });
 });

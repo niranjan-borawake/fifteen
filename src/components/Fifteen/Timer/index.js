@@ -26,7 +26,7 @@ const Timer = ({ dispatch, currentPlayer, testTimer }) => {
       data-testid={`timer-player-${currentPlayer}`}
       className={`timer player-${currentPlayer}`}
     >
-      {`00:${timer < 10 ? '0' + timer : timer}`}
+      {timer}
     </label>
   );
 };

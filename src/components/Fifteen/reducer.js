@@ -5,29 +5,37 @@ function selectFrom(lowerValue, upperValue) {
   return Math.floor(Math.random() * choices + lowerValue);
 }
 
-let boardNumbers = [];
+const getBoardNumbers = () => {
+  let boardNumbers = [];
 
-for (let i = 0; i < 50; i++) {
-  boardNumbers.push({ value: selectFrom(1, 9), isUsed: false, id: i });
-}
+  for (let i = 0; i < 50; i++) {
+    boardNumbers.push({ value: selectFrom(1, 9), isUsed: false, id: i });
+  }
+  return boardNumbers;
+};
 
-export const initialState = {
-  boardNumbers,
+export const getInitialState = () => ({
+  boardNumbers: getBoardNumbers(),
   currentPlayer: PLAYERS.ONE,
   currentSelections: [],
   loser: '',
   isGameOver: false,
-};
+});
 
 export const ACTIONS = {
-  TOGGLE_CURRENT_PLAYER: 5,
-  SET_GAME_OVER: 10,
-  ADD_TO_CURRENT_SELECTIONS: 11,
-  REMOVE_FROM_CURRENT_SELECTIONS: 13,
+  TOGGLE_CURRENT_PLAYER: 1,
+  SET_GAME_OVER: 2,
+  ADD_TO_CURRENT_SELECTIONS: 3,
+  REMOVE_FROM_CURRENT_SELECTIONS: 4,
+  RE_START: 5,
 };
 
 export const reducer = (state, action) => {
   switch (action.type) {
+    case ACTIONS.RE_START:
+      return {
+        ...getInitialState(),
+      };
     case ACTIONS.TOGGLE_CURRENT_PLAYER: {
       const { boardNumbers, currentSelections } = state;
       currentSelections.forEach(selection => {

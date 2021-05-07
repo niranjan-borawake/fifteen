@@ -1,0 +1,36 @@
+@keyframes confettiRain {
+  0% {
+    opacity: 1;
+    margin-top: -100vh;
+  }
+
+  100% {
+    opacity: 1;
+    margin-top: 100vh;
+  }
+}
+
+.confetti {
+  opacity: 0;
+  position: absolute;
+  width: 1rem;
+  height: 1.5rem;
+  transition: 500ms ease;
+  animation: confettiRain 15s infinite;
+}
+
+.confetti-wrapper {
+  width: 100vw;
+  height: calc(100vh - 20vh);
+  overflow: hidden !important;
+  position: fixed;
+  z-index: 1;
+}
+
+.player-2 .confetti-wrapper {
+  top: 20vh;
+}
+
+.player-1 .confetti-wrapper {
+  transform: rotate(180deg);
+}

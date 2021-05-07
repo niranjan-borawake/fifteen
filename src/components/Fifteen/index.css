@@ -11,6 +11,11 @@
   display: grid;
   align-items: center;
   justify-items: center;
+  font-size: xxx-large;
+  z-index: 2;
+}
+.result-and-timer.game-over {
+  grid-template-columns: repeat(3, auto);
 }
 .result-and-timer .player-2 {
   transform: rotate(180deg);
@@ -22,4 +27,11 @@
 .fifteen.player-2 .number {
   transform: rotate(180deg);
   transition: transform 0.5s ease-out;
+}
+.result-and-timer .icon {
+  width: 20px;
+  height: 20px;
+  color: var(--br-900-color);
+  align-self: end;
+  margin-bottom: 15px;
 }

@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Fifteen from './components/Fifteen';
+import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 
 import './index.css';
-import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -12,4 +12,4 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-reportWebVitals();
+serviceWorkerRegistration.register();

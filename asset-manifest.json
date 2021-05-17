@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/fifteen/static/css/main.5450fab9.chunk.css",
+    "main.css": "/fifteen/static/css/main.aea51d70.chunk.css",
     "main.js": "/fifteen/static/js/main.ece1aff2.chunk.js",
     "main.js.map": "/fifteen/static/js/main.ece1aff2.chunk.js.map",
     "runtime-main.js": "/fifteen/static/js/runtime-main.ec065b53.js",
@@ -10,7 +10,7 @@
     "index.html": "/fifteen/index.html",
     "service-worker.js": "/fifteen/service-worker.js",
     "service-worker.js.map": "/fifteen/service-worker.js.map",
-    "static/css/main.5450fab9.chunk.css.map": "/fifteen/static/css/main.5450fab9.chunk.css.map",
+    "static/css/main.aea51d70.chunk.css.map": "/fifteen/static/css/main.aea51d70.chunk.css.map",
     "static/js/2.f97334b6.chunk.js.LICENSE.txt": "/fifteen/static/js/2.f97334b6.chunk.js.LICENSE.txt",
     "static/media/NDAvatar.9548e391.svg": "/fifteen/static/media/NDAvatar.9548e391.svg",
     "static/media/fifteen.1b19e599.jpeg": "/fifteen/static/media/fifteen.1b19e599.jpeg"
@@ -18,7 +18,7 @@
   "entrypoints": [
     "static/js/runtime-main.ec065b53.js",
     "static/js/2.f97334b6.chunk.js",
-    "static/css/main.5450fab9.chunk.css",
+    "static/css/main.aea51d70.chunk.css",
     "static/js/main.ece1aff2.chunk.js"
   ]
 }

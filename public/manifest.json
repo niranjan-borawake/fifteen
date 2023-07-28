@@ -22,5 +22,6 @@
   "display": "fullscreen",
   "orientation": "portrait",
   "theme_color": "#d7ccc8",
-  "background_color": "#efebe9"
+  "background_color": "#efebe9",
+  "description": "Players take it in turns to select 2 or 3 circles that total 15 in 15s. A player could select 2 circles, e.g. 7 and 8 or 3 circles, e.g. 4, 5 and 6. The last player who selects a combination of 15 is the winner."
 }
